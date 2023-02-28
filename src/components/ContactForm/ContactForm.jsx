@@ -8,9 +8,19 @@ class ContactForm extends Component {
         number: ''
     }
 
+    handleSubmitForm = (evt) => {
+        
+    }
+
+    handleChange = () => {
+        this.setState(prevState => ({
+            
+        }))
+    }
+
     render() {
         return (
-            <form className="ContactForm">
+            <form className="ContactForm" onSubmit={this.handleSubmitForm()}>
                 <label>
                     Name
                     <br />
@@ -20,6 +30,8 @@ class ContactForm extends Component {
                         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                         required
+                        value={this.state.name}
+                        onChange={() => (this.handleChange())}
                         />
                 </label>
                 <button className="ContactForm__btn">Add contact</button>
