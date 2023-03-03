@@ -23,17 +23,13 @@ export class App extends Component {
       number,
     };
 
-    (this.setState(prevState => ({
-      contacts: [contactItem, ...prevState.contacts]
-    })))
-
-    // this.state.contacts.map(contact =>
-    //   contactItem.name !== contact.name
-    //     ? (this.setState(prevState => ({
-    //         contacts: [contactItem, ...prevState.contacts]
-    //       })))
-    //     : alert(`${contactItem.name} is already in contacts`)
-    // )    
+    if (this.state.contacts.find(contact => contactItem.name === contact.name)) {
+      alert(`${contactItem.name} is already in contacts`)
+    } else {
+      this.setState(prevState => ({
+        contacts: [contactItem, ...prevState.contacts]
+      }))
+    }
   };
 
   changeFilterContacts = (evt) => {
